@@ -11,6 +11,8 @@ Currently this audio player requires the user to manually add audio files to the
 In future versions I would like to create a GUI of some sort that makes this user friendly and spits out an embed code for even the least technical users. 
 Think music producers, artists, etc. 
 
+I would also like to add download/sale options, with instant delivery. Maybe email collection, etc. 
+
 Some changes I added to this from the original are playing the song song when clicking the title in the playlist, and minor bug fixes.
 
 
