@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BEAT PLAYER</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<h1>A1 Alex</h1>
+		<div id="container">
+			<div id="audio-img">
+				<img class="cover">
+			</div>
+			<div id="audio-player">
+				<div id="audio-info">
+					<span class="artist"></span> - <span class="title"></span>
+				</div>
+				<input id="volume" type="range" min="0" max="10" value="5">
+				<br>
+				<div id="audio-controls">
+					<button id="prev"></button>
+					<button id="play"></button>
+					<button id="pause"></button>
+					<button id="stop"></button>
+					<button id="next"></button>
+				</div>
+				<div class="clearfix"></div>
+				<div id="tracker">
+					<div id="progressbar">
+						<span id="progress"></span>
+					</div>
+					<span id="duration"></span>
+				</div>
+				<div class="clearfix"></div>
+				<ul id="playlist">
+					<li song="Maryland.mp3" cover="bvh.jpg" artist="Alex Gray">'Maryland'</li>
+					<li song="Alex's Beat - Beat-02.mp3" cover="bvh.jpg" artist="Alex Gray">Beat 02</li>
+					<li song="Alex's Beat - Beat-03.mp3" cover="bvh.jpg" artist="Alex Gray">Beat 03</li>
+					<li song="Alex's Beat - Beat-04.mp3" cover="bvh.jpg" artist="Alex Gray">Beat 04</li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
