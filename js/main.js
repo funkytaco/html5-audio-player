@@ -1,19 +1,3 @@
-// Download Mixtape Popup
-
-$('#downloadPopUp').hide();
-
-$('#downloadMixtape').click(function(){
-	$('#downloadPopUp').show();
-});
-
-$('#nevermind').click(function(){
-	$('#downloadPopUp').hide();
-});
-
-$('#subscribe').click(function(){
-	$('#downloadPopUp').hide();
-});
-
 var audio;
 
 //hide pause button
