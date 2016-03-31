@@ -51,7 +51,7 @@ function initAudio(element){
 	element.addClass('active');
 
 }
-//Click Song Title
+//Click Song Title to Play That Song
 
 
 
