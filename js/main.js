@@ -33,7 +33,7 @@ function initAudio(element){
 
 
 	//Create AUDIO OBJECT
-	audio = new Audio('http://localhost/beats/wp-content/themes/AG_1/html_5_audio_player/media/' + song);
+	audio = new Audio('media/' + song);
 
 	if(!audio.currentTime) {
 		$('#duration').html('0.00');
@@ -45,7 +45,7 @@ function initAudio(element){
 
 	//Insert Cover
 
-	$('img.cover').attr('src', 'http://localhost/beats/wp-content/themes/AG_1/html_5_audio_player/img/covers/'+ cover);
+	$('img.cover').attr('src', 'img/covers/'+ cover);
 
 	$('#playlist li').removeClass('active');
 	element.addClass('active');
@@ -56,10 +56,10 @@ function initAudio(element){
 
 
     $('#playlist li').click(function(){
-	
+
 	audio.pause();
-	if(typeof audio !== "undefined" ) audio.src='http://localhost/beats/wp-content/themes/AG_1/html_5_audio_player/media/' +
-	     $(this).attr('song'); 
+	if(typeof audio !== "undefined" ) audio.src='media/' +
+	     $(this).attr('song');
 
 	audio.play();
 
@@ -102,7 +102,7 @@ $('#stop').click(function(){
 	$('#duration').fadeOut(400);
 });
 
-//NEXT Buttomn 
+//NEXT Buttomn
 
 $('#next').click(function(){
 	audio.pause();
@@ -120,7 +120,7 @@ $('#next').click(function(){
 	}
 });
 
-//PREV Buttomn 
+//PREV Buttomn
 
 $('#prev').click(function(){
 	audio.pause();
@@ -142,7 +142,7 @@ $('#prev').click(function(){
 $('#volume').change(function(){
 	audio.volume = parseFloat(this.value / 10);
 });
-	
+
 
 
 //Time duration
@@ -164,5 +164,3 @@ function showDuration(){
 		$('#progress').css('width', value+'%')
 	});
 }
-
-
