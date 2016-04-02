@@ -16,3 +16,6 @@ Some changes I added to this from the original are playing the song song when cl
 Enjoy!
 
 **I developed this player in localhost and it was working fine. I haven't tested it on a live or mobile site yet!**
+
+P.S.
+The mp3's included were produced by me, and you may use them for any non-profit work so long as you credit Alex Gray. Thanks!
