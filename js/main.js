@@ -41,7 +41,10 @@ function initAudio(element){
 
     $('#playlist li').click(function playsong(){
     var title = $(this).text();
-    scrolled = $(this).position(); 
+    scrolled = $(this).index() * 50;
+    $("#playlistContainer").animate(
+		{scrollTop: scrolled}
+		); 
     console.log(scrolled);
     $('#audio-player .title').text(title);
 	audio.pause();
