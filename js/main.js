@@ -41,6 +41,8 @@ function initAudio(element){
 
     $('#playlist li').click(function playsong(){
     var title = $(this).text();
+    scrolled = $(this).position(); 
+    console.log(scrolled);
     $('#audio-player .title').text(title);
 	audio.pause();
 	if(typeof audio !== "undefined" ) audio.src='media/' +
@@ -91,8 +93,23 @@ $('#stop').click(function(){
 
 //NEXT Buttomn
 //Scrolls down each time next is clicked
-
+var offset = $('#playlist li.active').position();
+var scrolled = 0;
+var playlistScrollHeight = document.getElementById("playlist").scrollHeight;
 //Assigns active class and play/pause audio, etc
+$("#next").on('click', function(){	
+	scrolled += 50
+	if (scrolled > 650){
+		scrolled = 0;
+	};
+	console.log(scrolled)
+	$("#playlistContainer").animate(
+		{scrollTop: scrolled}
+		)
+
+
+});
+
 $('#next').click(function(){
 	audio.pause();
 	var next = $('#playlist li.active').next();
@@ -111,7 +128,16 @@ $('#next').click(function(){
 
 //PREV Buttomn
 //Scrolls up on each click
-
+$("#prev").on('click', function(){		
+	scrolled -= 50
+	if (scrolled < 0){
+		scrolled = 650;
+	};
+	console.log(scrolled)
+	$("#playlistContainer").animate(
+		{scrollTop: scrolled}
+		)
+});
 
 $('#prev').click(function(){
 	audio.pause();
