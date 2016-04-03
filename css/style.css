@@ -121,6 +121,7 @@ button#next{
 #playlist li{
 	cursor: pointer;
 	margin:5px;
+	line-height: 50px;
 }
 
 #playlist li.active{

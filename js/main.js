@@ -40,7 +40,8 @@ function initAudio(element){
 
 
     $('#playlist li').click(function playsong(){
-
+    var title = $(this).text();
+    $('#audio-player .title').text(title);
 	audio.pause();
 	if(typeof audio !== "undefined" ) audio.src='media/' +
 	     $(this).attr('song');
@@ -55,6 +56,8 @@ function initAudio(element){
 	$(this).addClass("active");
 
 });
+
+
 
 //Play button
 
@@ -87,7 +90,9 @@ $('#stop').click(function(){
 });
 
 //NEXT Buttomn
+//Scrolls down each time next is clicked
 
+//Assigns active class and play/pause audio, etc
 $('#next').click(function(){
 	audio.pause();
 	var next = $('#playlist li.active').next();
@@ -105,6 +110,8 @@ $('#next').click(function(){
 });
 
 //PREV Buttomn
+//Scrolls up on each click
+
 
 $('#prev').click(function(){
 	audio.pause();
@@ -148,3 +155,4 @@ function showDuration(){
 		$('#progress').css('width', value+'%')
 	});
 }
+
