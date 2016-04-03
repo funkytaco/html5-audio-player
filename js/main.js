@@ -39,7 +39,7 @@ function initAudio(element){
 
 
 
-    $('#playlist li').click(function(){
+    $('#playlist li').click(function playsong(){
 
 	audio.pause();
 	if(typeof audio !== "undefined" ) audio.src='media/' +
