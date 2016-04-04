@@ -175,3 +175,7 @@ button#next{
 	max-height: 200px;
 	overflow-y: scroll;
 }
+
+.downloadLink{
+	float: right;
+}

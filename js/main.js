@@ -1,5 +1,5 @@
 var audio;
-
+console.log("it works");
 //hide pause button
 
 $('#pause').hide();
@@ -45,7 +45,6 @@ function initAudio(element){
     $("#playlistContainer").animate(
 		{scrollTop: scrolled}
 		); 
-    console.log(scrolled);
     $('#audio-player .title').text(title);
 	audio.pause();
 	if(typeof audio !== "undefined" ) audio.src='media/' +
@@ -96,13 +95,11 @@ $('#stop').click(function(){
 
 //NEXT Buttomn
 //Scrolls down each time next is clicked
-var offset = $('#playlist li.active').position();
 var scrolled = 0;
-var playlistScrollHeight = document.getElementById("playlist").scrollHeight;
 //Assigns active class and play/pause audio, etc
 $("#next").on('click', function(){	
 	scrolled += 50
-	if (scrolled > 650){
+	if (scrolled > $("#playlist li:last-child").index()*50){
 		scrolled = 0;
 	};
 	console.log(scrolled)
