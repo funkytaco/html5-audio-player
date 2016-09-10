@@ -6,6 +6,12 @@
 }
 
 body{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 	font-family: "Arial", sans-serif;
 	font-size: 13px;
 	line-height: 1.5em;
@@ -114,12 +120,14 @@ button#next{
 
 #playlist{
 	list-style: none;
+	list-style-position: inside;
 	padding: 10px;
 }
 
 #playlist li{
 	cursor: pointer;
 	margin:5px;
+	line-height: 50px;
 }
 
 #playlist li.active{
@@ -161,4 +169,13 @@ button#next{
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius: 5px;
+}
+/* Creats a scrolling container for the playlist*/
+#playlistContainer{
+	max-height: 200px;
+	overflow-y: scroll;
+}
+
+.downloadLink{
+	float: right;
 }

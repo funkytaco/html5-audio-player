@@ -1,21 +1,5 @@
-// Download Mixtape Popup
-
-$('#downloadPopUp').hide();
-
-$('#downloadMixtape').click(function(){
-	$('#downloadPopUp').show();
-});
-
-$('#nevermind').click(function(){
-	$('#downloadPopUp').hide();
-});
-
-$('#subscribe').click(function(){
-	$('#downloadPopUp').hide();
-});
-
 var audio;
-
+console.log("it works");
 //hide pause button
 
 $('#pause').hide();
@@ -33,7 +17,7 @@ function initAudio(element){
 
 
 	//Create AUDIO OBJECT
-	audio = new Audio('http://localhost/beats/wp-content/themes/AG_1/html_5_audio_player/media/' + song);
+	audio = new Audio('media/' + song);
 
 	if(!audio.currentTime) {
 		$('#duration').html('0.00');
@@ -45,7 +29,7 @@ function initAudio(element){
 
 	//Insert Cover
 
-	$('img.cover').attr('src', 'http://localhost/beats/wp-content/themes/AG_1/html_5_audio_player/img/covers/'+ cover);
+	$('img.cover').attr('src', 'img/covers/'+ cover);
 
 	$('#playlist li').removeClass('active');
 	element.addClass('active');
@@ -55,11 +39,16 @@ function initAudio(element){
 
 
 
-    $('#playlist li').click(function(){
-	
+    $('#playlist li').click(function playsong(){
+    var title = $(this).text();
+    scrolled = $(this).index() * 50;
+    $("#playlistContainer").animate(
+		{scrollTop: scrolled}
+		); 
+    $('#audio-player .title').text(title);
 	audio.pause();
-	if(typeof audio !== "undefined" ) audio.src='http://localhost/beats/wp-content/themes/AG_1/html_5_audio_player/media/' +
-	     $(this).attr('song'); 
+	if(typeof audio !== "undefined" ) audio.src='media/' +
+	     $(this).attr('song');
 
 	audio.play();
 
@@ -71,6 +60,8 @@ function initAudio(element){
 	$(this).addClass("active");
 
 });
+
+
 
 //Play button
 
@@ -102,7 +93,22 @@ $('#stop').click(function(){
 	$('#duration').fadeOut(400);
 });
 
-//NEXT Buttomn 
+//NEXT Buttomn
+//Scrolls down each time next is clicked
+var scrolled = 0;
+//Assigns active class and play/pause audio, etc
+$("#next").on('click', function(){	
+	scrolled += 50
+	if (scrolled > $("#playlist li:last-child").index()*50){
+		scrolled = 0;
+	};
+	console.log(scrolled)
+	$("#playlistContainer").animate(
+		{scrollTop: scrolled}
+		)
+
+
+});
 
 $('#next').click(function(){
 	audio.pause();
@@ -120,7 +126,18 @@ $('#next').click(function(){
 	}
 });
 
-//PREV Buttomn 
+//PREV Buttomn
+//Scrolls up on each click
+$("#prev").on('click', function(){		
+	scrolled -= 50
+	if (scrolled < 0){
+		scrolled = 650;
+	};
+	console.log(scrolled)
+	$("#playlistContainer").animate(
+		{scrollTop: scrolled}
+		)
+});
 
 $('#prev').click(function(){
 	audio.pause();
@@ -142,7 +159,7 @@ $('#prev').click(function(){
 $('#volume').change(function(){
 	audio.volume = parseFloat(this.value / 10);
 });
-	
+
 
 
 //Time duration
@@ -164,5 +181,4 @@ function showDuration(){
 		$('#progress').css('width', value+'%')
 	});
 }
-
 
